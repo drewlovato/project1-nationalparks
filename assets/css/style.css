@@ -1,3 +1,27 @@
 body{
-
+ background-color: rgb(146, 172, 94);
 }
+
+header {
+    display: flex;
+    justify-content:space-between;
+    color: white;
+    padding: 10px;
+}
+
+header img {
+    height: 15vh;
+}
+
+ .searchBar {
+    color: red;
+ }
+
+ nav {
+    display: inline;
+    background-color: darkolivegreen;
+    width: 100%;
+    float: right;
+    text-align: right;
+    color: white;
+ }

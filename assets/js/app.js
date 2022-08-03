@@ -1,11 +1,14 @@
 const searchParkEl = document.querySelector('.searchBar')
 const searchBtnEl = document.querySelector('.searchBtn')
 
-searchBtnEl.addEventListener('click', parkWeather)
+searchBtnEl.addEventListener('click', parkName)
 
-
-var apiPark = 'dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe'
-var apiWeather = "a79cc559d0824f46711db4a217d374a2"
+let apiPark = 'dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe'
+let apiWeather = "a79cc559d0824f46711db4a217d374a2"
+let namePark = ''
+let parkDesc = ''
+let lat = ''
+let lon = ''
 
 
 function parkName() {
@@ -13,22 +16,22 @@ function parkName() {
   .then((response) => response.json())
   .then ((data) => {
     console.log(data)
-     const name = data[0].name
-     const parkDesc = data[0].description
-     const lat = data[0].latitude
-     const lon = data[0].longitude
+      namePark= data.data[0].name
+      parkDesc = data.data[0].description
+      lat = data.data[0].latitude
+      lon = data.data[0].longitude
 
-     parkWeather(name, parkDesc, lat, lon)
+     parkWeather()
   })
 }
 
-//parkName()
-
-function parkWeather() {
-fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hour&units=imperial&appid=a79cc559d0824f46711db4a217d37`)
+function parkWeather() { 
+fetch (`https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hour&units=imperial&appid=a79cc559d0824f46711db4a217d374a2`)
     .then ((response) => response.json())
     .then ((data) => {
         console.log(data)
+        console.log(namePark, parkDesc)
 
     })
 }
+// 

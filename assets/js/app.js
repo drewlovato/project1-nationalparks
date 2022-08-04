@@ -26,20 +26,29 @@ let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
 
+
 // function 1 - runs national parks api
-function parkName() {
+function parkName(event) {
+  event.preventDefault()
   fetch(
     `https://developer.nps.gov/api/v1/parks?parkCode=${searchParkEl.value}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       namePark = data.data[0].name;
       parkDesc = data.data[0].description;
       lat = data.data[0].latitude;
       lon = data.data[0].longitude;
+
       //pricing
+
+      // set item to local storage
+      let nameOfPark = [namePark, parkDesc, lat, lon]
+      localStorage.setItem('nameOfPark', JSON.stringify(nameOfPark))
+
+      retrieveLocalStorage()
       parkWeather();
+      
     });
 }
 
@@ -125,3 +134,11 @@ function parkWeather() {
     });
   return;
 }
+
+// code for local storage for "recent searches"
+
+function retrieveLocalStorage() {
+
+
+}
+

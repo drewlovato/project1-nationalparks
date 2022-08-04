@@ -1,5 +1,7 @@
 body{
  background-color: rgb(146, 172, 94);
+ 
+ width: 100%;
 }
 
 header {
@@ -7,15 +9,41 @@ header {
     justify-content:space-between;
     color: white;
     padding: 10px;
+    margin-right: 40px;
+    margin-top: 40px;
 }
 
 header img {
     height: 15vh;
+    margin-left: 40px;
+    margin-bottom: 25px;
 }
 
  .searchBar {
-    color: red;
+    color: rgb(255,255,255);
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: rgb(146, 172, 94);
+    outline: 0;
+    border-color: rgb(244,127,75);
+    
  }
+
+::placeholder {
+    color: rgb(255,255,255);
+    font-family: 'Bebas Neue', cursive;
+    letter-spacing: .2em;
+   
+    
+    
+}
+
+.fa-search {
+    color:rgb(244,127,75);
+}
+
 
  nav {
     display: inline;

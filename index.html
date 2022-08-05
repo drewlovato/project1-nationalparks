@@ -10,6 +10,16 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- MOMENT.JS -->
@@ -21,36 +31,43 @@
   <body>
     <main>
       <header>
-        <img src="assets/Images/National-Park-Logo.png" alt="NPS Logo" class="Logo" />
-      <form>
-        <label for="search" class="fa fa-search"></label>
-        <input type="text" class="searchBar fa fa-search" />
-        <button class="searchBtn">Submit</button>
-      </form>
+        <img
+          src="assets/Images/National-Park-Logo.png"
+          alt="NPS Logo"
+          class="Logo"
+        />
+        <form>
+          <label for="search" class="fa fa-search"></label>
+          <input
+            type="text"
+            class="searchBar fa fa-search"
+            placeholder="Search"
+          />
+
+          <button class="searchBtn">Submit</button>
+        </form> 
       </header>
       <nav class="navBar">
         <!--Modals for these items-->
-          <a href="https://www.nps.gov/index.htm" target="_blank">NPS Homepage</a>
-          <a href="#">Visit __ National Park Homepage</a>
-          <a href="#">Fun facts about _ park</a>
+        <a href="https://www.nps.gov/index.htm" target="_blank">NPS Homepage</a>
+        <a href="#">Visit __ National Park Homepage</a>
+        <a href="#">Fun facts about _ park</a>
       </nav>
       <section>
         <div class="parkBio">
           <div class="parkClassified">
+            <img class="park-images" src="" alt="">
             <p class="namePark"></p>
             <p class="parkDesignation"></p>
             <p class="parkState"></p>
-        <div class="locationClassified">
-            <p class="lat"></p>
-            <p class="lon"></p>
-        </div>
             <p class="parkDesc"></p>
+            <div class="locationClassified">
+              <p class="lat"></p>
+              <p class="lon"></p>
+            </div>
           </div>
-          
-          
+          <div class="parkPrices"></div>
         </div>
-
-        <div class="parkPrices"></div>
 
         <div class="park5DayWeather"></div>
       </section>

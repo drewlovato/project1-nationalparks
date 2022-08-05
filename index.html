@@ -15,13 +15,14 @@
     <!-- MOMENT.JS -->
     <script src="./assets/lib/moment/moment-with-locales.js"></script>
 
+    <!-- FONTS -->
     <title>Document</title>
   </head>
   <body>
     <main>
       <header>
         <img src="assets/Images/National-Park-Logo.png" alt="NPS Logo" class="Logo" />
-        <form>
+      <form>
         <label for="search" class="fa fa-search"></label>
         <input type="text" class="searchBar fa fa-search" />
         <button class="searchBtn">Submit</button>
@@ -35,17 +36,27 @@
       </nav>
       <section>
         <div class="parkBio">
-          <p class="namePark"></p>
-          <p class="lat"></p>
-          <p class="lon"></p>
-          <p class="parkDesc"></p>
+          <div class="parkClassified">
+            <p class="namePark"></p>
+            <p class="parkDesignation"></p>
+            <p class="parkState"></p>
+        <div class="locationClassified">
+            <p class="lat"></p>
+            <p class="lon"></p>
+        </div>
+            <p class="parkDesc"></p>
+          </div>
+          
+          
         </div>
 
-        <p class="parkPrices"></p>
+        <div class="parkPrices"></div>
 
-        <p class="park5DayWeather"></p>
+        <div class="park5DayWeather"></div>
       </section>
-      <footer></footer>
+      <footer>
+        <p class="footer-text">powered by nps.gov/api</p>
+      </footer>
 
       <script src="./assets/js/app.js"></script>
     </main>

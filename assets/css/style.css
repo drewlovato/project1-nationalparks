@@ -13,7 +13,7 @@ header img {
     height: 15vh;
 }
 
- .searchBar {
+.searchBar {
     color: red;
  }
 
@@ -24,4 +24,32 @@ header img {
     float: right;
     text-align: right;
     color: white;
+ }
+
+ .parkBio{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+ }
+
+ .parkClassified{
+    display: flex;
+    flex-direction: column;
+ }
+
+ .namePark{
+    margin-left: 5px;
+ }
+
+ .locationClassified{
+    display: flex;
+ }
+
+ .lon{
+    margin-left: 10px;
+ }
+
+ .parkPrices{
+    width: 50%;
  }

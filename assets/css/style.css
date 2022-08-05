@@ -19,6 +19,7 @@ header img {
     margin-bottom: 25px;
 }
 
+<<<<<<< HEAD
  .searchBar {
     color: rgb(255,255,255);
     border-top-style: hidden;
@@ -29,6 +30,10 @@ header img {
     outline: 0;
     border-color: rgb(244,127,75);
     
+=======
+.searchBar {
+    color: red;
+>>>>>>> c4fa0096a753b472a312e8705d0cb560ca760cac
  }
 
 ::placeholder {
@@ -52,4 +57,32 @@ header img {
     float: right;
     text-align: right;
     color: white;
+ }
+
+ .parkBio{
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    background-color: green;
+ }
+
+ .parkClassified{
+    display: flex;
+    flex-direction: column;
+ }
+
+ .namePark{
+    margin-left: 5px;
+ }
+
+ .locationClassified{
+    display: flex;
+ }
+
+ .lon{
+    margin-left: 10px;
+ }
+
+ .parkPrices{
+    width: 50%;
  }

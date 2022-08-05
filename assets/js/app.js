@@ -5,15 +5,22 @@ const searchBtnEl = document.querySelector(".searchBtn");
 //variables for park biogragphy
 const parkBioEl = document.querySelector(".parkBio");
 const nameParkEl = document.querySelector(".namePark");
+const parkDesignationEl = document.querySelector(".parkDesignation");
+const parkStateEl = document.querySelector(".parkState");
 const parkDescEl = document.querySelector(".parkDesc");
 const latEl = document.querySelector(".lat");
 const lonEl = document.querySelector(".lon");
 
-//variable for 5 day weather forcast
+//variable for Park Prices
+const parkPrices = document.querySelector(".parkPrices");
+
+//variable for 5 day Weather Forcast
 const park5DayWeatherEl = document.querySelector(".park5DayWeather");
 
 // variables for national parks info
 let namePark = "";
+let parkDesignation = "";
+let parkState = "";
 let parkDesc = "";
 let lat = "";
 let lon = "";
@@ -26,20 +33,71 @@ let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
 
+
 // function 1 - runs national parks api
-function parkName() {
+function parkName(event) {
+
+  event.preventDefault()
   fetch(
     `https://developer.nps.gov/api/v1/parks?parkCode=${searchParkEl.value}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       namePark = data.data[0].name;
+      parkDesignation = data.data[0].designation;
+      parkState = data.data[0].addresses[0].stateCode;
       parkDesc = data.data[0].description;
       lat = data.data[0].latitude;
       lon = data.data[0].longitude;
+
+      //START OF 4 ENTRANCE FEES
+      // setting variable for each fee
+      let fee1 = data.data[0].entranceFees[0];
+      let fee2 = data.data[0].entranceFees[1];
+      let fee3 = data.data[0].entranceFees[2];
+      let fee4 = data.data[0].entranceFees[3];
+
+      let allEntranceFees = [fee1, fee2, fee3, fee4];
+
+      for (let index = 0; index < allEntranceFees.length; index++) {
+        const element = allEntranceFees[index];
+        console.log(element);
+        let feeCostVal = element.cost;
+        let feeDescVal = element.description;
+        let feeTitleVal = element.title;
+
+        allParkFeesEl = document.createElement("div");
+
+        //prints values of fee cost to page
+        var feeCostEl = document.createElement("p");
+        feeCostEl.textContent = `${feeCostVal}`;
+        feeCostEl.classList.add("pFeeCost");
+        allParkFeesEl.append(feeCostEl);
+
+        //prints values of fee cost to page
+        var feeDescEl = document.createElement("p");
+        feeDescEl.textContent = `${feeDescVal}`;
+        feeDescEl.classList.add("pFeeDesc");
+        allParkFeesEl.append(feeDescEl);
+
+        //prints values of title cost to page
+        var feeTitleEl = document.createElement("p");
+        feeTitleEl.textContent = `${feeTitleVal}`;
+        feeTitleEl.classList.add("pTitleDesc");
+        allParkFeesEl.append(feeTitleEl);
+
+        parkPrices.append(allParkFeesEl);
+      }
+      
       //pricing
+
+      // set item to local storage
+      let nameOfPark = [namePark, parkDesc, lat, lon]
+      localStorage.setItem('nameOfPark', JSON.stringify(nameOfPark))
+
+      retrieveLocalStorage()
       parkWeather();
+      
     });
 }
 
@@ -55,9 +113,11 @@ function parkWeather() {
 
       //prints values from first function to the page
       nameParkEl.textContent = `${namePark}`;
+      parkDesignationEl.textContent = `${parkDesignation}`;
+      parkStateEl.textContent = `STATE: ${parkState}`;
+      parkDescEl.textContent = `${parkDesc}`;
       latEl.textContent = `${lat}`;
       lonEl.textContent = `${lon}`;
-      parkDescEl.textContent = `${parkDesc}`;
 
       // START OF 5 DAY WEATHER
       // setting variables for each day
@@ -92,7 +152,7 @@ function parkWeather() {
 
         // Weather Icon Element Chunk (Part of Card)
         var futureIconEl = document.createElement("img");
-        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}.png`;
+        futureIconEl.src = `http://openweathermap.org/img/wn/${futureIconVal}@2x.png`;
         futureIconEl.alt = futureIconVal;
         weatherCardEl.append(futureIconEl);
 
@@ -125,3 +185,11 @@ function parkWeather() {
     });
   return;
 }
+
+// code for local storage for "recent searches"
+
+function retrieveLocalStorage() {
+
+
+}
+

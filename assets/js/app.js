@@ -89,6 +89,12 @@ function parkName(event) {
       }
 
       //pricing
+
+      // set item to local storage
+      let nameOfPark = [namePark, parkDesc, lat, lon];
+      localStorage.setItem("nameOfPark", JSON.stringify(nameOfPark));
+
+      retrieveLocalStorage();
       parkWeather();
     });
 }
@@ -177,3 +183,7 @@ function parkWeather() {
     });
   return;
 }
+
+// code for local storage for "recent searches"
+
+function retrieveLocalStorage() {}

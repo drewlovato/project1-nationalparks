@@ -4,29 +4,44 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- FONT AWESOME -->
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap" rel="stylesheet">
+    <!-- FONTS -->
+    <!-- work sans font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
       rel="stylesheet"
     />
-
+    <!-- work sans font (weight 600) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap"
+      rel="stylesheet"
+    />
+    <!-- roboto condensed font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- STYLESHEETS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- MOMENT.JS -->
     <script src="./assets/lib/moment/moment-with-locales.js"></script>
 
     <!-- FONTS -->
-    <title>Document</title>
+    <title>National Parks Information</title>
   </head>
   <body>
     <main>
@@ -36,43 +51,51 @@
           alt="NPS Logo"
           class="Logo"
         />
-        <form>
-          <label for="search" class="fa fa-search"></label>
+        <nav class="navBar">
+          <!--Modals for these items-->
+          <a href="https://www.nps.gov/index.htm" target="_blank">home</a>
+          <a
+            href="https://www.nps.gov/romo/learn/fire-information-and-regulations.htm"
+            target="_blank"
+            >closures</a
+          >
+          <a href="#">facts</a>
+        </nav>
+        <form class="searchForm">
+          <button class="searchBtn">
+            <label for="search" class="fa fa-search"></label>
+          </button>
           <input
             type="text"
             class="searchBar fa fa-search"
-            placeholder="Search"
+            placeholder="search a national park"
           />
-
-          <button class="searchBtn">Submit</button>
-        </form> 
+        </form>
       </header>
-      <nav class="navBar">
-        <!--Modals for these items-->
-        <a href="https://www.nps.gov/index.htm" target="_blank">NPS Homepage</a>
-        <a href="#">Visit __ National Park Homepage</a>
-        <a href="#">Fun facts about _ park</a>
-      </nav>
+
       <section>
         <div class="parkBio">
           <div class="parkClassified">
-            <img class="park-images" src="" alt="">
-            <p class="namePark"></p>
-            <p class="parkDesignation"></p>
+            <div class="nameGrouped">
+              <p class="namePark"></p>
+              <p class="parkDesignation"></p>
+            </div>
             <p class="parkState"></p>
-            <p class="parkDesc"></p>
             <div class="locationClassified">
               <p class="lat"></p>
               <p class="lon"></p>
             </div>
+            <p class="parkDesc"></p>
           </div>
-          <div class="parkPrices"></div>
+          <img class="park-images" src="" alt="" />
         </div>
+
+        <div class="parkPrices"></div>
 
         <div class="park5DayWeather"></div>
       </section>
-      <footer>
-        <p class="footer-text">powered by nps.gov/api</p>
+      <footer class="footer-text">
+        <p>powered by nps.gov/api</p>
       </footer>
 
       <script src="./assets/js/app.js"></script>

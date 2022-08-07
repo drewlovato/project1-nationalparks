@@ -13,6 +13,7 @@ const parkStateEl = document.querySelector(".parkState");
 const parkDescEl = document.querySelector(".parkDesc");
 const latEl = document.querySelector(".lat");
 const lonEl = document.querySelector(".lon");
+const uniqueSpeciesEl = document.querySelector('.unique-species')
 
 //variable for Park Prices
 const parkPrices = document.querySelector(".parkPrices");
@@ -27,6 +28,7 @@ let parkState = "";
 let parkDesc = "";
 let lat = "";
 let lon = "";
+let parkURL = '';
 
 
 // array for national park names for autosearch:
@@ -135,6 +137,7 @@ const allParks = [
 
 // api key for national parks
 let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
+
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
@@ -145,13 +148,16 @@ searchBtnEl.addEventListener("click", parkName);
 // function 1 - runs national parks api
 function parkName(event) {
   event.preventDefault()
+
+  // links full park name to API search code
   let parkCode;
   for (let i = 0; i < allParks.length; i++) {
     if(searchParkEl.value == (allParks[i].name)) {
      parkCode = allParks[i].code
+     console.log(parkCode)
     }
-    
   }
+
   fetch(
     `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
   )
@@ -163,14 +169,15 @@ function parkName(event) {
       parkDesc = data.data[0].description;
       lat = data.data[0].latitude;
       lon = data.data[0].longitude;
+    
 
       // park photos from API 
-
       image1 = data.data[0].images[0].url
       image2 = data.data[0].images[1].url
       image3 = data.data[0].images[2].url
       image4 = data.data[0].images[3].url
-      let imageArray = [image1, image2, image3, image4]
+      image5 = data.data[0].images[4].url
+      let imageArray = [image1, image2, image3, image4, image5]
       for (let i = 0; i < imageArray.length - 1; i++) {
        imageEl.setAttribute('src', image1)
         setInterval(function(){
@@ -207,6 +214,7 @@ function parkName(event) {
         feeDescEl.textContent = `${feeDescVal}`;
         feeDescEl.classList.add("pFeeDesc");
         allParkFeesEl.append(feeDescEl);
+      
 
         //prints values of title cost to page
         var feeTitleEl = document.createElement("p");
@@ -215,9 +223,10 @@ function parkName(event) {
         allParkFeesEl.append(feeTitleEl);
 
         parkPrices.append(allParkFeesEl);
+
+        // prints url to the navbar
+
       }
-      
-      //pricing
 
       // set item to local storage
       let nameOfPark = [namePark, parkDesc, lat, lon]

@@ -33,12 +33,55 @@ header img {
   margin-bottom: 25px; */
 }
 
-.navBar{
+.navBar {
    display: flex;
    align-items: center;
    justify-content: flex-end;
+   color: rgb(255, 255, 255);
+   font-family: 'Work Sans', sans-serif;
+   font-weight: 400;
+
 }
 
+.recent-searches{
+   color: rgb(255, 255, 255);
+   font-family: 'Roboto Condensed', sans-serif;
+   font-weight: 400px;
+   text-transform: capitalize;
+   letter-spacing: 0.2em;
+   color: rgb(255, 255, 255);
+   border-top-style: hidden;
+   border-right-style: hidden;
+   border-left-style: hidden;
+   border-bottom-style: solid;
+   background-color: rgb(146, 172, 94);
+   outline: 0;
+   border-color: rgb(159, 89, 39);
+   border-width: .2rem;
+   text-transform: capitalize;
+   width: 20%;
+   margin-left: 20px;
+}
+
+.list-searches{
+   color: rgb(255, 255, 255);
+   font-family: 'Roboto Condensed', sans-serif;
+   font-weight: 400px;
+   text-transform: capitalize;
+   letter-spacing: 0.2em;
+   color: rgb(255, 255, 255);
+   border-top-style: hidden;
+   border-right-style: hidden;
+   border-left-style: hidden;
+   border-bottom-style: solid;
+   background-color: rgb(146, 172, 94);
+   outline: 0;
+   border-color: rgb(159, 89, 39);
+   border-width: .2rem;
+   text-transform: capitalize;
+   width: 20%;
+   margin-left: 20px;
+}
 a {
    width: 100%;
    height: 20px;
@@ -104,7 +147,6 @@ input[type="text"]{
    border-width: .2rem;
    text-transform: capitalize;
    width: 80%;
-
 }
 
 input::placeholder {

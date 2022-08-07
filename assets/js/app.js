@@ -146,7 +146,7 @@ searchBtnEl.addEventListener("click", parkName);
 
 // function 1 - runs national parks api
 function parkName(event) {
-  event.preventDefault();
+ event.preventDefault()
   let parkCode;
   for (let i = 0; i < allParks.length; i++) {
     if (searchParkEl.value == allParks[i].name) {
@@ -335,14 +335,15 @@ recentSearch.push(searchParkEl.value);
     recentSearchEl.append(recentSearchListEl)
     recentSearchListEl.append(searchParkEl.value)
     recentSearchListEl.classList.add('list-searches')
+    recentSearchListEl.setAttribute('data-code', recentSearch)
+    recentSearchListEl.addEventListener('click', parkName())
+
     retrieveLocalStorage()
   }
 
   function retrieveLocalStorage() {
   let searchedParks = JSON.parse(localStorage.getItem('recentSearch', searchParkEl.value)) || []
   for (let i = 0; i < searchedParks.length; i++) {
-    recentSearchListEl.setAttrcibute('data-code', searchedParks[i][0])
-    recentSearchListEl.addEventListener('click', recentSearchListEl)
   }
   }
 

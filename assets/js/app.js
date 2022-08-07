@@ -145,7 +145,7 @@ searchBtnEl.addEventListener("click", parkName);
 
 // function 1 - runs national parks api
 function parkName(event) {
-  event.preventDefault();
+ event.preventDefault()
   let parkCode;
   for (let i = 0; i < allParks.length; i++) {
     if (searchParkEl.value == allParks[i].name) {
@@ -328,6 +328,7 @@ function parkWeather() {
 // code for local storage for "recent searches"
 let recentSearch = [];
 function recentSearches() {
+
   recentSearch.push(searchParkEl.value);
   let recentSearchListEl = document.createElement("option");
   let recentSearchEl = document.querySelector(".recent-searches");
@@ -344,6 +345,25 @@ function recentSearches() {
 //     recentSearchListEl.addEventListener('click', recentSearchListEl)
 //   }
 //   }
+
+recentSearch.push(searchParkEl.value);
+    let recentSearchListEl = document.createElement('option')
+    let recentSearchEl = document.querySelector('.recent-searches')
+    recentSearchEl.append(recentSearchListEl)
+    recentSearchListEl.append(searchParkEl.value)
+    recentSearchListEl.classList.add('list-searches')
+    recentSearchListEl.setAttribute('data-code', recentSearch)
+    recentSearchListEl.addEventListener('click', parkName())
+
+    retrieveLocalStorage()
+  }
+
+  function retrieveLocalStorage() {
+  let searchedParks = JSON.parse(localStorage.getItem('recentSearch', searchParkEl.value)) || []
+  for (let i = 0; i < searchedParks.length; i++) {
+  }
+  }
+
 
 //   function searchRecentItems(event) {
 //     let anotherSearch = event.target.getAttribute('data-code')

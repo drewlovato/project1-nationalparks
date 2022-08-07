@@ -6,7 +6,7 @@
 
 /* Body */
 body {
-  background-color: rgb(146, 172, 94);
+   background-color: rgb(164, 185, 126);
   letter-spacing: 0.1em;
 }
 
@@ -98,7 +98,7 @@ input[type="text"]{
    border-right-style: hidden;
    border-left-style: hidden;
    border-bottom-style: solid;
-   background-color: rgb(146, 172, 94);
+   background-color: transparent;
    outline: 0;
    border-color: rgb(159, 89, 39);
    border-width: .2rem;
@@ -155,6 +155,11 @@ input::placeholder {
    margin-left: 12px;
    color: white;
    font-size: 1.2em;
+}
+
+.material-symbols-outlined{
+   color: white;
+   margin-right: 10px;
 }
 
 .parkState{

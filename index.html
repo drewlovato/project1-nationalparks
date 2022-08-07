@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
 
     <!-- FONT AWESOME -->
     <link
@@ -28,9 +27,6 @@
       href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap"
       rel="stylesheet"
     />
-    <!-- Bulma css framework link -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
     <!-- roboto condensed font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -66,18 +62,19 @@
           <a href="#">facts</a>
         </nav>
         <form class="searchForm">
-          <div class="search-input">
           <button class="searchBtn">
             <label for="search" class="fa fa-search"></label>
           </button>
-        </div>
           <input
-            type="text" class="searchBar fa fa-search" placeholder="search a national park"/>
+            type="text"
+            class="searchBar fa fa-search"
+            placeholder="search a national park"
+          />
         </form>
       </header>
+
       <section>
-    <div class="container columns is-full">
-        <div class="parkBio column is-half">
+        <div class="parkBio">
           <div class="parkClassified">
             <div class="nameGrouped">
               <p class="namePark"></p>
@@ -87,19 +84,16 @@
             <div class="locationClassified">
               <p class="lat"></p>
               <p class="lon"></p>
-              <p src="" target="_blank" class="park-url"></p>
             </div>
             <p class="parkDesc"></p>
           </div>
+          <img class="park-images" src="" alt="" />
         </div>
-          <img class="park-images column is-half" src="" alt="" />
-      </div>
+
         <div class="parkPrices"></div>
+
         <div class="park5DayWeather"></div>
       </section>
-           
-
-    
       <footer class="footer-text">
         <p>powered by nps.gov/api</p>
       </footer>

@@ -186,10 +186,10 @@ function parkName(event) {
       image4 = data.data[0].images[3].url;
 
       let imageArray = [image1, image2, image3, image4];
-      // for (let i = 0; i < imageArray.length; i++) {
-      //   const slideShow = imageArray[i];
-      //   imageEl.setAttribute("src", slideShow);
-      // }
+      for (let i = 0; i < imageArray.length; i++) {
+        const slideShow = imageArray[i];
+        imageEl.setAttribute("src", slideShow);
+      }
 
       //START OF 4 ENTRANCE FEES
       // setting variable for each fee
@@ -350,3 +350,16 @@ function recentSearches() {
 //     parkName(anotherSearch)
 //   }
 // retrieveLocalStorage()
+
+// MODAL
+const learnMoreBtn = document.querySelector("#learnMore");
+const modalBg = document.querySelector(".modal-background");
+const modal = document.querySelector(".modal");
+
+learnMoreBtn.addEventListener("click", () => {
+  modal.classList.add("is-active");
+});
+
+modalBg.addEventListener("click", () => {
+  modal.classList.remove("is-active");
+});

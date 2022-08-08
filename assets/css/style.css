@@ -223,7 +223,7 @@ input[type="text"]{
 }
 
 input::placeholder {
-   color: rgb(255, 255, 255);
+   color:rgb(255, 106, 0) ;
    font-family: 'Roboto Condensed', sans-serif;
    text-transform: capitalize;
    letter-spacing: 0.2em;
@@ -243,6 +243,10 @@ input::placeholder {
    box-sizing: border-box;
    margin-bottom: 25px;
    padding: 35px 45px 35px 35px;
+}
+
+.parkBio .hide{
+   display: none;
 }
  
 .parkClassified {
@@ -308,7 +312,10 @@ input::placeholder {
    width: 50%;
    height: auto;
    box-shadow: 7px 5px 20px 8px rgb(199, 199, 199);
+
 }
+
+
 
 /* START OF PARK PRICES */
 .pricesContainer{

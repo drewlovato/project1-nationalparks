@@ -282,7 +282,6 @@ input::placeholder {
    margin-bottom: 25px;
    font-family: 'Work Sans', sans-serif;
    color:rgb(59, 63, 57);
-   text-justify: distribute;
    line-height: 2;
 }
 
@@ -429,5 +428,187 @@ input::placeholder {
    border: solid 1.5px rgb(255, 106, 0);;
    transition: .5s;
 }
+
 /* START OF MEDIA QUERY */
+
+/* modile screen widths */
+@media (min-width: 320px) and (max-width: 480px){
+header{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   padding: 40px 20px 10px 20px;
+}
+
+.Logo{
+   margin-bottom: 40px;
+}
+
+.navBar{
+   justify-content: center;
+   margin-bottom: 40px;
+}
+
+.navBar a{
+   margin: 0 20px 0 20px;
+   justify-content: center;
+}
+
+.searchForm{
+   width: 90%;
+   justify-content: center;
+   height: 70px;
+   margin-right: 30px;
+}
+
+.searchBar.fa.fa-search{
+   font-size: 20px;
+   font-family: 'Work Sans', sans-serif;
+}
+
+.fa.fa-search::before{
+   width: 30px;
+}
+
+.recent-searches{
+   display: none;
+}
+
+.parkBio{
+   width: 100%;
+   display: flex;
+   flex-direction: column;
+   padding: 15px;
+}
+
+.parkClassified{
+   width: 100%;
+}
+
+.nameGrouped{
+   width: 100%;
+   font-size: 2.2em;
+   display: flex;
+   justify-content: flex-start;
+}
+
+.parkDesignation{
+   display: flex;
+   margin-left: 5px;
+}
+
+.park-images{
+   width: 480px;
+   height: auto;
+}
+
+.lat{
+   margin-left: 0;
+}
+
+.parkDesc{
+   display: flex;
+   justify-content: center;
+   margin-right: 30px;
+}
+
+.park5DayWeather{
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: fit-content;
+}
+
+.weatherCardContainers{
+   width: 400px;
+   height: 340px;
+   padding: 50px;
+   margin-bottom: 30px;
+}
+
+.weatherCardContainers img{
+width: 150px;
+height: 150px;
+margin-left: 23%;
+}
+
+.pDesc{
+   font-weight: 600; 
+   margin-bottom: 30px;
+}
+
+.divGauge{
+   font-size: 15px;
+}
+}
+/* tablet screen widths */
+@media (min-width: 481px) and (max-width: 786px){
+   body{
+      width: 100%;
+      margin: 0;
+   }
+   
+   header{
+      width: 100%;
+   }
+   
+   .recent-searches{
+      display: none;
+   }
+
+   .parkBio{
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+   }
+
+   .parkClassified{
+      width: 100%;
+      margin: 0;
+   }
+
+   .locationClassified{
+      margin-bottom: 40px;
+   }
+
+   .parkDesc{
+      width: 100%;
+      margin-bottom: 40px;
+   }
+
+   .nameGrouped{
+      font-size: 40px;
+   }
+
+   .park-images{
+      width: 100%;
+   }
+
+   .park5DayWeather{
+      width: fit-content;  
+      margin: 10px 30px 10px 30px;
+
+   }
+
+   .weatherCardContainers{
+      width: 80%;
+      margin: 5px;
+      padding: 30px;
+   }
+
+   .pDate{
+      font-size: 10px;
+   }
+
+   .divGauge{
+      display: flex; 
+      flex-direction: column;
+      justify-items: center;
+   }
+}
+
+/* large scree widths */
+@media (min-width: 769px) and (max-width: 1024px){
+   
+}
 

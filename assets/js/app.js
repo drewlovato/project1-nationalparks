@@ -140,10 +140,11 @@ let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
-// // variables for landing page
+// // VARIABLES FOR LANDING PAGE
 // let query = document.querySelector(".query");
 // let landingPageButton = document.querySelector(".landingPageButton");
 
+// FUNCTION FOR LANDING PAGE
 // landingPageButton.onclick = function () {
 //   let url = parkName();
 //   window.open(url);

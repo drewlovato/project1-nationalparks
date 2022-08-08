@@ -4,7 +4,7 @@ const searchBtnEl = document.querySelector(".searchBtn");
 const imageEl = document.querySelector(".park-images");
 let inputBox = document.querySelector("input");
 const autoComplete = document.querySelector('.autocomplete')
-const resultsHTML = document.querySelector('.results')
+const formWrapper = document.querySelector('.searchForm')
 
 //variables for park biogragphy
 const parkBioEl = document.querySelector(".parkBio");
@@ -95,77 +95,52 @@ const allParks = [
   { name: "Zion National Park", code: "zion" },
 ];
 
+const parks = ["Acadia National Park", "Arches National Park"]
+
+
 // code for autocomplete
-// autoComplete.oninput = function() {
-//   let results = [];
-//   const userInput = this.value;
-//     resultsHTML.innerHTML  = "";
-//     if(userInput.length > 5) {
-//       results = getResults(userInput);
-//       resultsHTML.style.display = 'block';
-//       for (let i = 0; i < results.length; i++) {
-//         resultsHTML.innerHTML += "<li>" + results[i] + "</li>"
-//       }
-//     }
-// }
 
-// function getResults(input) {
-//   const results = [];
+//key events for autocomplete searchbar.  Showing only values types by users.
+inputBox.onkeyup = (e) => {
+  let userData = e.target.value;
+  let emptyArray = [];
+  if (userData) {
+    emptyArray = parks.filter((data) => {
+      return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
+    });
+    emptyArray = emptyArray.map((data) => {
+      return (data = "<li>" + data + "</li>");
+    });
+    console.log(emptyArray);
+    formWrapper.classList.add("active");
+  } else {
+    formWrapper.classList.remove("active");
+  }
+  let suggBox = []
+  showSugggestions(emptyArray);
+  let allList = suggBox.querySelectorAll("li");
+  for (let i = 0; i < allList.length; i++) {
+    allList[i].setAttribute("onclick", "select(this)");
+  }
+};
 
-//   for (let i = 0; i < allParks.length; i++) {
-//     if(input === allParks[i].slice(0, 1)) {
-//       results.push(allParks[i])
-//     }
-//   }
-//   return results;
-// }
-
-// resultsHTML.onclick = function(event) {
-//   const setValue = event.target.innerText;
-//   autoComplete.value = setValue;
-//   this.innerHTML = "";
-// }
-
-// key events for autocomplete searchbar.  Showing only values types by users.
-// inputBox.onkeyup = (e) => {
-//   let userData = e.target.value;
-//   let emptyArray = [];
-//   if (userData) {
-//     emptyArray = allParks.filter((data) => {
-//       return data.toLocaleLowerCase().startsWith(userData.toLocaleLowerCase());
-//     });
-//     emptyArray = emptyArray.map((data) => {
-//       return (data = "<li>" + data + "</li>");
-//     });
-//     console.log(emptyArray);
-//     searchWrapper.classList.add("active");
-//   } else {
-//     searchWrapper.classList.remove("active");
-//   }
-//   showSugggestions(emptyArray);
-//   let allList = suggBox.querySelectorAll("li");
-//   for (let i = 0; i < allList.length; i++) {
-//     allList[i].setAttribute("onclick", "select(this)");
-//   }
-// };
-
-// // putting user selected list item in textarea
-// function select(element) {
-//   let selectUserData = element.textContent;
-//   inputBox.value = selectUserData;
-//   searchWrapper.classList.remove("active");
-// }
-// // showing autoSuggest list
-// function showSugggestions(list) {
-//   let listData;
-//   if (!list.length) {
-//     userValue = inputBox.value;
-//   } else {
-//     listData = list.join("");
-//     listData = "<li>" + userValue + "</li>";
-//   }
-//   suggBox.innerHTML = listData;
-// }
+// putting user selected list item in textarea
+function select(element) {
+  let selectUserData = element.textContent;
+  inputBox.value = selectUserData;
+  formWrapper.classList.remove("active");
+}
+// showing autoSuggest list
+function showSugggestions(list) {
+  let listData;
+  if (!list.length) {
+    userValue = inputBox.value;
+  } else {
+    listData = list.join("");
+    listData = "<li>" + userValue + "</li>";
+  }
+  suggBox.innerHTML = listData;
+}
 
 // api key for national parks
 let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
@@ -385,10 +360,9 @@ recentSearch.push(searchParkEl.value);
     recentSearchListEl.append(searchParkEl.value)
     recentSearchListEl.classList.add('list-searches')
     recentSearchListEl.setAttribute('data-code', recentSearch)
-    recentSearchListEl.addEventListener('click', parkName())
+   // recentSearchListEl.addEventListener('click', parkName())
 
-    retrieveLocalStorage(){
-  }
+    retrieveLocalStorage()
 
   function retrieveLocalStorage() {
   let searchedParks = JSON.parse(localStorage.getItem('recentSearch', searchParkEl.value)) || []

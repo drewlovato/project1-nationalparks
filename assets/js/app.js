@@ -3,6 +3,8 @@ const searchParkEl = document.querySelector(".searchBar");
 const searchBtnEl = document.querySelector(".searchBtn");
 const imageEl = document.querySelector(".park-images");
 let inputBox = document.querySelector("input");
+const autoComplete = document.querySelector('.autocomplete')
+const resultsHTML = document.querySelector('.results')
 
 //variables for park biogragphy
 const parkBioEl = document.querySelector(".parkBio");
@@ -32,8 +34,7 @@ let parkDesc = "";
 let lat = "";
 let lon = "";
 
-// array for national park names for autosearch:
-// array for autocomplete
+// array for national park names for autocomplete:
 const allParks = [
   { name: "Acadia National Park", code: "acad" },
   { name: "Arches National Park", code: "arch" },
@@ -93,6 +94,37 @@ const allParks = [
   { name: "Yosemite National Park", code: "yose" },
   { name: "Zion National Park", code: "zion" },
 ];
+
+// code for autocomplete
+// autoComplete.oninput = function() {
+//   let results = [];
+//   const userInput = this.value;
+//     resultsHTML.innerHTML  = "";
+//     if(userInput.length > 5) {
+//       results = getResults(userInput);
+//       resultsHTML.style.display = 'block';
+//       for (let i = 0; i < results.length; i++) {
+//         resultsHTML.innerHTML += "<li>" + results[i] + "</li>"
+//       }
+//     }
+// }
+
+// function getResults(input) {
+//   const results = [];
+
+//   for (let i = 0; i < allParks.length; i++) {
+//     if(input === allParks[i].slice(0, 1)) {
+//       results.push(allParks[i])
+//     }
+//   }
+//   return results;
+// }
+
+// resultsHTML.onclick = function(event) {
+//   const setValue = event.target.innerText;
+//   autoComplete.value = setValue;
+//   this.innerHTML = "";
+// }
 
 // key events for autocomplete searchbar.  Showing only values types by users.
 // inputBox.onkeyup = (e) => {

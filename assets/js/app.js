@@ -140,6 +140,15 @@ let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
+// // variables for landing page
+// let query = document.querySelector(".query");
+// let landingPageButton = document.querySelector(".landingPageButton");
+
+// landingPageButton.onclick = function () {
+//   let url = parkName();
+//   window.open(url);
+// };
+
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
 
@@ -337,13 +346,31 @@ function recentSearches() {
   retrieveLocalStorage();
 }
 
-//   function retrieveLocalStorage() {
-//   let searchedParks = JSON.parse(localStorage.getItem('recentSearch', searchParkEl.value)) || []
-//   for (let i = 0; i < searchedParks.length; i++) {
-//     recentSearchListEl.setAttrcibute('data-code', searchedParks[i][0])
-//     recentSearchListEl.addEventListener('click', recentSearchListEl)
-//   }
-//   }
+function retrieveLocalStorage() {
+  let searchedParks =
+    JSON.parse(localStorage.getItem("recentSearch", searchParkEl.value)) || [];
+  for (let i = 0; i < searchedParks.length; i++) {
+    recentSearchListEl.setAttrcibute("data-code", searchedParks[i][0]);
+    recentSearchListEl.addEventListener("click", recentSearchListEl);
+  }
+}
+
+recentSearch.push(searchParkEl.value);
+let recentSearchListEl = document.createElement("option");
+let recentSearchEl = document.querySelector(".recent-searches");
+recentSearchEl.append(recentSearchListEl);
+recentSearchListEl.append(searchParkEl.value);
+recentSearchListEl.classList.add("list-searches");
+recentSearchListEl.setAttribute("data-code", recentSearch);
+recentSearchListEl.addEventListener("click", parkName());
+
+retrieveLocalStorage();
+
+function retrieveLocalStorage() {
+  let searchedParks =
+    JSON.parse(localStorage.getItem("recentSearch", searchParkEl.value)) || [];
+  for (let i = 0; i < searchedParks.length; i++) {}
+}
 
 //   function searchRecentItems(event) {
 //     let anotherSearch = event.target.getAttribute('data-code')
@@ -352,11 +379,11 @@ function recentSearches() {
 // retrieveLocalStorage()
 
 // MODAL
-const learnMoreBtn = document.querySelector("#learnMore");
+const signupBtn = document.querySelector("#signup");
 const modalBg = document.querySelector(".modal-background");
 const modal = document.querySelector(".modal");
 
-learnMoreBtn.addEventListener("click", () => {
+signupBtn.addEventListener("click", () => {
   modal.classList.add("is-active");
 });
 

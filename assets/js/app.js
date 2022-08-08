@@ -143,7 +143,6 @@ let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
 
-
 // function 1 - runs national parks api
 function parkName(event) {
  event.preventDefault()
@@ -153,7 +152,7 @@ function parkName(event) {
       parkCode = allParks[i].code;
     }
   }
-  
+
   fetch(
     `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
   )
@@ -166,17 +165,18 @@ function parkName(event) {
       lat = data.data[0].latitude;
       lon = data.data[0].longitude;
 
-      let recentSearch = JSON.parse(localStorage.getItem('recentSearch')) || []
-      var found = false
+      let recentSearch = JSON.parse(localStorage.getItem("recentSearch")) || [];
+      var found = false;
       for (let i = 0; i < recentSearch.length; i++) {
-        if(recentSearch[i][0] == searchParkEl.value) {
-        found = true
-        } if(!found) {
-        recentSearch.push([parkCode])
-        localStorage.setItem('recentSearch', JSON.stringify(recentSearch))
-        parkName()
+        if (recentSearch[i][0] == searchParkEl.value) {
+          found = true;
+        }
+        if (!found) {
+          recentSearch.push([parkCode]);
+          localStorage.setItem("recentSearch", JSON.stringify(recentSearch));
+          parkName();
+        }
       }
-    }
 
       // park photos from API
 
@@ -184,12 +184,12 @@ function parkName(event) {
       image2 = data.data[0].images[1].url;
       image3 = data.data[0].images[2].url;
       image4 = data.data[0].images[3].url;
-      
+
       let imageArray = [image1, image2, image3, image4];
-      for (let i = 0; i < imageArray.length; i++) {
-        const slideShow = imageArray[i];
-        imageEl.setAttribute("src", slideShow);
-      }
+      // for (let i = 0; i < imageArray.length; i++) {
+      //   const slideShow = imageArray[i];
+      //   imageEl.setAttribute("src", slideShow);
+      // }
 
       //START OF 4 ENTRANCE FEES
       // setting variable for each fee
@@ -233,9 +233,9 @@ function parkName(event) {
       let searchedCode = [parkCode, namePark];
       localStorage.setItem("searchedCode", JSON.stringify(searchedCode));
 
-    //  retrieveLocalStorage();
+      //  retrieveLocalStorage();
       parkWeather();
-      recentSearches()
+      recentSearches();
     });
 }
 
@@ -246,7 +246,6 @@ function parkWeather() {
   )
     .then((response) => response.json())
     .then((data) => {
-      
       //prints values from first function to the page
       nameParkEl.textContent = `${namePark}`;
       namePark.toUpperCase(namePark);
@@ -329,6 +328,24 @@ function parkWeather() {
 // code for local storage for "recent searches"
 let recentSearch = [];
 function recentSearches() {
+
+  recentSearch.push(searchParkEl.value);
+  let recentSearchListEl = document.createElement("option");
+  let recentSearchEl = document.querySelector(".recent-searches");
+  recentSearchEl.append(recentSearchListEl);
+  recentSearchListEl.append(searchParkEl.value);
+  recentSearchListEl.classList.add("list-searches");
+  retrieveLocalStorage();
+}
+
+//   function retrieveLocalStorage() {
+//   let searchedParks = JSON.parse(localStorage.getItem('recentSearch', searchParkEl.value)) || []
+//   for (let i = 0; i < searchedParks.length; i++) {
+//     recentSearchListEl.setAttrcibute('data-code', searchedParks[i][0])
+//     recentSearchListEl.addEventListener('click', recentSearchListEl)
+//   }
+//   }
+
 recentSearch.push(searchParkEl.value);
     let recentSearchListEl = document.createElement('option')
     let recentSearchEl = document.querySelector('.recent-searches')
@@ -347,8 +364,9 @@ recentSearch.push(searchParkEl.value);
   }
   }
 
-  function searchRecentItems(event) {
-    let anotherSearch = event.target.getAttribute('data-code')
-    parkName(anotherSearch)
-  }
-retrieveLocalStorage()
+
+//   function searchRecentItems(event) {
+//     let anotherSearch = event.target.getAttribute('data-code')
+//     parkName(anotherSearch)
+//   }
+// retrieveLocalStorage()

@@ -143,6 +143,7 @@ function parkName(event) {
   )
     .then((response) => response.json())
     .then((data) => {
+      console.log(data);
       namePark = data.data[0].name;
       parkDesignation = data.data[0].designation;
       parkState = data.data[0].addresses[0].stateCode;

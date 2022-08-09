@@ -112,8 +112,8 @@ body {
    border-color: rgb(255, 106, 0);
    border-width: .2rem;
    text-transform: capitalize;
-   width: 20%;
-   margin-left: 20px;
+   width: 15%;
+   margin-left: 10px;
 }
 
 .list-searches{
@@ -160,17 +160,16 @@ a:hover{
    height: 70px;
    padding: 20px;
    margin-right: 30px;
-   
 }
 
 .searchBar button{
-   background: transparent;
+   background: rgb(255, 106, 0);
+   color: rgb(255, 106, 0);
    border: none;
    cursor: pointer;
    height: 40px;
    width: 40px;
    margin-bottom: 20px;
-  
 }
 
 .results{
@@ -178,9 +177,9 @@ a:hover{
    color: black;
 }
 
-
 .fa.fa-search {
    color: rgb(255, 106, 0);
+   
 }
 
 .fa.fa-search::before{
@@ -237,7 +236,7 @@ input::placeholder {
 }
 
 input::placeholder {
-   color:rgb(255, 106, 0) ;
+   color:rgb(255, 106, 0);
    font-family: 'Roboto Condensed', sans-serif;
    text-transform: capitalize;
    letter-spacing: 0.2em;

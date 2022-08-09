@@ -26,7 +26,7 @@ const parkPrices = document.querySelector(".parkPrices");
 //variable for 5 day Weather Forcast
 const park5DayWeatherEl = document.querySelector(".park5DayWeather");
 
-// variables for national parks info
+// variables fors info
 let namePark = "";
 let parkDesignation = "";
 let parkState = "";
@@ -36,69 +36,69 @@ let lon = "";
 
 let searchTerm = "";
 
-// array for national park names for autocomplete:
+// array for names for autocomplete:
 const allParks = [
   { name: "Acadia", code: "acad" },
-  { name: "Arches National Park", code: "arch" },
-  { name: "Badlands National Park", code: "badl" },
-  { name: "Big Bend National Park", code: "bibe" },
-  { name: "Biscayne National Park", code: "bisc" },
-  { name: "Bryce Canyon National Park", code: "brca" },
-  { name: "Canyonlands National Park", code: "cany" },
-  { name: "Capitol Reef National Park", code: "care" },
-  { name: "Carlsbad Caverns National Park", code: "carl" },
-  { name: "Channel Islands National Park", code: "chis" },
-  { name: "Congaree National Park", code: "cong" },
-  { name: "Crater Lake National Park", code: "crla" },
-  { name: "Cuyahoga Valley National Park", code: "cuva" },
-  { name: "Death Valley National Park", code: "deva" },
-  { name: "Denali National Park and Preserve", code: "dena" },
-  { name: "Dry Tortugas National Park", code: "drto" },
-  { name: "Everglades National Park", code: "ever" },
-  { name: "Gates of the Arctic National Park", code: "gaar" },
-  { name: "Gateway Arch National Park", code: "gate" },
-  { name: "Glacier National Park", code: "glac" },
-  { name: "Glacier Bay National Park", code: "glba" },
-  { name: "Grand Canyon National Park", code: "grte" },
-  { name: "Great Sand Dunes National Park and Preserve", code: "grsa" },
-  { name: "Great Smoky Mountains National Park", code: "grsm" },
-  { name: "Guadalupe Mountains National Park", code: "gumo" },
-  { name: "Haleakala National Park", code: "hale" },
-  { name: "Hawaii Volcanoes National Park", code: "havo" },
-  { name: "Hot Springs National Park", code: "hosp" },
-  { name: "Indiana Dunes National Park", code: "indu" },
-  { name: "Isle Royale National Park", code: "isro" },
-  { name: "Joshua Tree National Park", code: "jotr" },
-  { name: "Katmai National Park and Preserve", code: "katm" },
-  { name: "Kenai Fjords National Park", code: "kefj" },
-  { name: "Kobuk Valley National Park", code: "kova" },
-  { name: "Lake Clark National Park", code: "lacl" },
-  { name: "Lassen Volcanic National Park", code: "lavo" },
-  { name: "Mammoth Cave National Park", code: "maca" },
-  { name: "Mesa Verde National Park", code: "meve" },
-  { name: "Mount Rainier National Park", code: "mora" },
-  { name: "New River Gorge National Park", code: "neri" },
-  { name: "North Cascades National Park", code: "noca" },
-  { name: "Olympic National Park", code: "olym" },
-  { name: "Petrified Forest National Park", code: "pefo" },
-  { name: "Pinnacles National Park", code: "pinn" },
-  { name: "Redwood National Park", code: "redw" },
-  { name: "Rocky Mountain National Park", code: "romo" },
-  { name: "Saguaro National Park", code: "sagu" },
-  { name: "Shenandoah National Park", code: "shen" },
-  { name: "Theodore Roosevelt National Park", code: "thro" },
-  { name: "Virgin Islands National Park", code: "viis" },
-  { name: "Voyageurs National Park", code: "voya" },
-  { name: "White Sands National Park", code: "whsa" },
-  { name: "Wind Cave National Park", code: "wica" },
-  { name: "Wrangell-St. Elias National Park and Preserve", code: "wrst" },
-  { name: "Yellowstone National Park", code: "yell" },
-  { name: "Yosemite National Park", code: "yose" },
+  { name: "Arches", code: "arch" },
+  { name: "Badlands", code: "badl" },
+  { name: "Big Bend", code: "bibe" },
+  { name: "Biscayne", code: "bisc" },
+  { name: "Bryce Canyon", code: "brca" },
+  { name: "Canyonlands", code: "cany" },
+  { name: "Capitol Reef", code: "care" },
+  { name: "Carlsbad Caverns", code: "carl" },
+  { name: "Channel Islands", code: "chis" },
+  { name: "Congaree", code: "cong" },
+  { name: "Crater Lake", code: "crla" },
+  { name: "Cuyahoga Valley", code: "cuva" },
+  { name: "Death Valley", code: "deva" },
+  { name: "Denali and Preserve", code: "dena" },
+  { name: "Dry Tortugas", code: "drto" },
+  { name: "Everglades", code: "ever" },
+  { name: "Gates of the Arctic", code: "gaar" },
+  { name: "Gateway Arch", code: "gate" },
+  { name: "Glacier", code: "glac" },
+  { name: "Glacier Bay", code: "glba" },
+  { name: "Grand Canyon", code: "grte" },
+  { name: "Great Sand Dunes and Preserve", code: "grsa" },
+  { name: "Great Smoky Mountains", code: "grsm" },
+  { name: "Guadalupe Mountains", code: "gumo" },
+  { name: "Haleakala", code: "hale" },
+  { name: "Hawaii Volcanoes", code: "havo" },
+  { name: "Hot Springs", code: "hosp" },
+  { name: "Indiana Dunes", code: "indu" },
+  { name: "Isle Royale", code: "isro" },
+  { name: "Joshua Tree", code: "jotr" },
+  { name: "Katmai and Preserve", code: "katm" },
+  { name: "Kenai Fjords", code: "kefj" },
+  { name: "Kobuk Valley", code: "kova" },
+  { name: "Lake Clark", code: "lacl" },
+  { name: "Lassen Volcanic", code: "lavo" },
+  { name: "Mammoth Cave", code: "maca" },
+  { name: "Mesa Verde", code: "meve" },
+  { name: "Mount Rainier", code: "mora" },
+  { name: "New River Gorge", code: "neri" },
+  { name: "North Cascades", code: "noca" },
+  { name: "Olympic", code: "olym" },
+  { name: "Petrified Forest", code: "pefo" },
+  { name: "Pinnacles", code: "pinn" },
+  { name: "Redwood", code: "redw" },
+  { name: "Rocky Mountain", code: "romo" },
+  { name: "Saguaro", code: "sagu" },
+  { name: "Shenandoah", code: "shen" },
+  { name: "Theodore Roosevelt", code: "thro" },
+  { name: "Virgin Islands", code: "viis" },
+  { name: "Voyageurs", code: "voya" },
+  { name: "White Sands", code: "whsa" },
+  { name: "Wind Cave", code: "wica" },
+  { name: "Wrangell-St. Elias and Preserve", code: "wrst" },
+  { name: "Yellowstone", code: "yell" },
+  { name: "Yosemite", code: "yose" },
   { name: "Zion", code: "zion" },
 ];
 
-// api key for national parks
-let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
+// api key for parks
+let apiPark = "Szs3pU1jwIO2lCqBIZlSKZataVqCif2rivTNgyOw";
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
@@ -109,8 +109,6 @@ let query = document.querySelector("#landingPageSearch");
 // FUNCTION FOR LANDING PAGE
 searchBtnEl.addEventListener("click", function () {
   let url = "index.html?q=" + query.value;
-  // document.redirect()
-  console.log(url);
   window.open(url);
 });
 
@@ -122,10 +120,10 @@ function checkQuery() {
   parkName();
 }
 
-// event listener starts search for national park info
+// event listener starts search for info
 searchBtnEl.addEventListener("click", parkName);
 
-// function 1 - runs national parks api
+// function 1 - runss api
 function parkName(event) {
   if (event) {
     event.preventDefault();
@@ -139,11 +137,10 @@ function parkName(event) {
   }
   searchTerm = "";
   fetch(
-    `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
+    `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=Szs3pU1jwIO2lCqBIZlSKZataVqCif2rivTNgyOw`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data);
       namePark = data.data[0].name;
       parkDesignation = data.data[0].designation;
       parkState = data.data[0].addresses[0].stateCode;
@@ -174,7 +171,7 @@ function parkName(event) {
       image4 = data.data[0].images[3].url;
 
       let imageArray = [image1, image2, image3, image4];
-      for (let i = 0; i < imageArray.length; i++) {
+      for (let i = 0; i < imageArray.length - 1; i++) {
         const slideShow = imageArray[i];
         imageEl.setAttribute("src", slideShow);
       }
@@ -313,17 +310,15 @@ let recentSearch = [];
 function renderRecentSearch() {
   recentSearch.push(searchParkEl.value);
   let previousSearch = JSON.parse(localStorage.getItem("searchedPark"));
-  for (let i = 0; i < previousSearch.length; i++) {
     let recentSearchOptions = document.createElement("option");
     let recentSearchContainer = document.querySelector(".recent-searches");
     recentSearchContainer.append(recentSearchOptions);
     recentSearchOptions.append(searchParkEl.value);
-    recentSearchOptions.setAttribute("data-code", previousSearch[i][0]);
-    console.log(previousSearch);
+    recentSearchOptions.setAttribute("data-code", previousSearch);
     recentSearchOptions.classList.add(".list-searches");
     recentSearchOptions.addEventListener("click", retrieveLocalStorage);
   }
-}
+
 function retrieveLocalStorage(event) {
   let searchedCode = event.target.getAttribute("data-code");
   parkName(searchedCode);

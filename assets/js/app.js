@@ -1,10 +1,10 @@
 //varibles from html page
 const searchParkEl = document.querySelector(".searchBar");
-const searchBtnEl = document.querySelector(".searchBtn");
+let searchBtnEl = document.querySelector(".searchBtn");
 const imageEl = document.querySelector(".park-images");
 let inputBox = document.querySelector("input");
-const autoComplete = document.querySelector('.autocomplete')
-const formWrapper = document.querySelector('.searchForm')
+const autoComplete = document.querySelector(".autocomplete");
+const formWrapper = document.querySelector(".searchForm");
 
 //variables for park biogragphy
 const parkBioEl = document.querySelector(".parkBio");
@@ -33,6 +33,8 @@ let parkState = "";
 let parkDesc = "";
 let lat = "";
 let lon = "";
+
+let searchTerm = "";
 
 // array for national park names for autocomplete:
 const allParks = [
@@ -100,42 +102,55 @@ let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
-// variables for landing page
-// let query = document.querySelector(".query");
-// let landingPageButton = document.querySelector(".landingPageButton");
+// VARIABLES FOR LANDING PAGE
+let query = document.querySelector("#landingPageSearch");
+// let landingPageButton = document.querySelector(".searchBtn");
 
-// landingPageButton.onclick = function () {
-//   let url = parkName();
-//   window.open(url);
-// };
+// FUNCTION FOR LANDING PAGE
+searchBtnEl.addEventListener("click", function () {
+  let url = "index.html?q=" + query.value;
+  // document.redirect()
+  console.log(url);
+  window.open(url);
+});
+
+function checkQuery() {
+  var queryString = document.location.search;
+  //if it exists then split like next line to get value
+  //then call search function and pass that term (parkName)
+  searchTerm = queryString.split("=")[1];
+  parkName();
+}
 
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
 
 // function 1 - runs national parks api
 function parkName(event) {
-event.preventDefault()
+  if (event) {
+    event.preventDefault();
+  }
   let parkCode;
+  const parkSearchTerm = searchParkEl.value || searchTerm;
   for (let i = 0; i < allParks.length; i++) {
-    if (searchParkEl.value == allParks[i].name) {
+    if (parkSearchTerm == allParks[i].name) {
       parkCode = allParks[i].code;
     }
   }
-
+  searchTerm = "";
   fetch(
     `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
   )
     .then((response) => response.json())
     .then((data) => {
-      console.log(data)
+      console.log(data);
       namePark = data.data[0].name;
       parkDesignation = data.data[0].designation;
       parkState = data.data[0].addresses[0].stateCode;
       parkDesc = data.data[0].description;
       lat = data.data[0].latitude;
       lon = data.data[0].longitude;
-      code = data.data[0].parkCode
-
+      code = data.data[0].parkCode;
 
       // setting up local storage for recent searches function
       let searchedPark = JSON.parse(localStorage.getItem("searchedPark")) || [];
@@ -145,12 +160,11 @@ event.preventDefault()
           found = true;
         }
       }
-        if (!found) {
-          searchedPark.push([code]);
-          localStorage.setItem("searchedPark", JSON.stringify(searchedPark));
-        renderRecentSearch()
-        }
-      
+      if (!found) {
+        searchedPark.push([code]);
+        localStorage.setItem("searchedPark", JSON.stringify(searchedPark));
+        renderRecentSearch();
+      }
 
       // park photos from API
 
@@ -203,10 +217,9 @@ event.preventDefault()
         parkPrices.append(allParkFeesEl);
       }
 
-
       //  retrieveLocalStorage();
       parkWeather();
-     // recentSearches();
+      // recentSearches();
     });
 }
 
@@ -296,25 +309,25 @@ function parkWeather() {
   return;
 }
 
-let recentSearch = []
-  function renderRecentSearch() {
-    recentSearch.push(searchParkEl.value)
-    let previousSearch = JSON.parse(localStorage.getItem('searchedPark'))
-    for (let i = 0; i < previousSearch.length; i++) {
-    let recentSearchOptions = document.createElement('option')
-    let recentSearchContainer = document.querySelector('.recent-searches')
-    recentSearchContainer.append(recentSearchOptions)
-    recentSearchOptions.append(searchParkEl.value)
-    recentSearchOptions.setAttribute('data-code', previousSearch[i][0])
-    console.log(previousSearch)
-    recentSearchOptions.classList.add('.list-searches')
-    recentSearchOptions.addEventListener("click", retrieveLocalStorage)
-    }
+let recentSearch = [];
+function renderRecentSearch() {
+  recentSearch.push(searchParkEl.value);
+  let previousSearch = JSON.parse(localStorage.getItem("searchedPark"));
+  for (let i = 0; i < previousSearch.length; i++) {
+    let recentSearchOptions = document.createElement("option");
+    let recentSearchContainer = document.querySelector(".recent-searches");
+    recentSearchContainer.append(recentSearchOptions);
+    recentSearchOptions.append(searchParkEl.value);
+    recentSearchOptions.setAttribute("data-code", previousSearch[i][0]);
+    console.log(previousSearch);
+    recentSearchOptions.classList.add(".list-searches");
+    recentSearchOptions.addEventListener("click", retrieveLocalStorage);
   }
+}
 function retrieveLocalStorage(event) {
-  let searchedCode = event.target.getAttribute('data-code')
-  parkName(searchedCode)
-  localStorage.clear()
+  let searchedCode = event.target.getAttribute("data-code");
+  parkName(searchedCode);
+  localStorage.clear();
 }
 //recentSearch = JSON.parse(localStorage.getItem("searchedCode")) || []
 // MODAL
@@ -329,3 +342,5 @@ signupBtn.addEventListener("click", () => {
 modalBg.addEventListener("click", () => {
   modal.classList.remove("is-active");
 });
+
+checkQuery();

@@ -1,6 +1,6 @@
 //varibles from html page
 const searchParkEl = document.querySelector(".searchBar");
-const searchBtnEl = document.querySelector(".searchBtn");
+let searchBtnEl = document.querySelector(".searchBtn");
 const imageEl = document.querySelector(".park-images");
 let inputBox = document.querySelector("input");
 const autoComplete = document.querySelector(".autocomplete");
@@ -100,15 +100,17 @@ let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
-// // VARIABLES FOR LANDING PAGE
-// let query = document.querySelector(".query");
-// let landingPageButton = document.querySelector(".landingPageButton");
+// VARIABLES FOR LANDING PAGE
+let query = document.querySelector(".query");
+// let landingPageButton = document.querySelector(".searchBtn");
 
 // FUNCTION FOR LANDING PAGE
-// landingPageButton.onclick = function () {
-//   let url = parkName();
-//   window.open(url);
-// };
+searchBtnEl.addEventListener("click", function () {
+  let url = "index.html?q=" + query.value;
+  document.redirect(url);
+  console.log(url);
+  window.open(url);
+});
 
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);

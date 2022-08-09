@@ -100,14 +100,14 @@ let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
 //api key of openweather
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
-// variables for landing page
-// let query = document.querySelector(".query");
-// let landingPageButton = document.querySelector(".landingPageButton");
+//variables for landing page
+let query = document.querySelector(".query");
+let landingPageButton = document.querySelector(".landingPageButton");
 
-// landingPageButton.onclick = function () {
-//   let url = parkName();
-//   window.open(url);
-// };
+landingPageButton.onclick = function () {
+  let url = 'index.html'
+  window.open(url);
+};
 
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
@@ -311,6 +311,7 @@ let recentSearch = []
     recentSearchOptions.addEventListener("click", retrieveLocalStorage)
     }
   }
+  
 function retrieveLocalStorage(event) {
   let searchedCode = event.target.getAttribute('data-code')
   parkName(searchedCode)

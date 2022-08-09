@@ -34,6 +34,8 @@ let parkDesc = "";
 let lat = "";
 let lon = "";
 
+let searchTerm = "";
+
 // array for national park names for autocomplete:
 const allParks = [
   { name: "Acadia", code: "acad" },
@@ -101,30 +103,41 @@ let apiPark = "dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe";
 let apiWeather = "a79cc559d0824f46711db4a217d374a2";
 
 // VARIABLES FOR LANDING PAGE
-let query = document.querySelector(".query");
+let query = document.querySelector("#landingPageSearch");
 // let landingPageButton = document.querySelector(".searchBtn");
 
 // FUNCTION FOR LANDING PAGE
 searchBtnEl.addEventListener("click", function () {
   let url = "index.html?q=" + query.value;
-  document.redirect(url);
+  // document.redirect()
   console.log(url);
   window.open(url);
 });
+
+function checkQuery() {
+  var queryString = document.location.search;
+  //if it exists then split like next line to get value
+  //then call search function and pass that term (parkName)
+  searchTerm = queryString.split("=")[1];
+  parkName();
+}
 
 // event listener starts search for national park info
 searchBtnEl.addEventListener("click", parkName);
 
 // function 1 - runs national parks api
 function parkName(event) {
-  event.preventDefault();
+  if (event) {
+    event.preventDefault();
+  }
   let parkCode;
+  const parkSearchTerm = searchParkEl.value || searchTerm;
   for (let i = 0; i < allParks.length; i++) {
-    if (searchParkEl.value == allParks[i].name) {
+    if (parkSearchTerm == allParks[i].name) {
       parkCode = allParks[i].code;
     }
   }
-
+  searchTerm = "";
   fetch(
     `https://developer.nps.gov/api/v1/parks?parkCode=${parkCode}&api_key=dtbgvyHKYoiS5V9y5hZJq49IJEEH16UFSVHhvdbe`
   )
@@ -328,3 +341,5 @@ signupBtn.addEventListener("click", () => {
 modalBg.addEventListener("click", () => {
   modal.classList.remove("is-active");
 });
+
+checkQuery();

@@ -5,28 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- FONT AWESOME -->
-    <link
-      rel="stylesheet"
-      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
-      crossorigin="anonymous"
-    />
     <!-- FONTS -->
-    <!-- work sans font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans&display=swap"
-      rel="stylesheet"
-    />
-    <!-- work sans font (weight 600) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@600&display=swap"
-      rel="stylesheet"
-    />
     <!-- roboto condensed font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,133 +13,31 @@
       href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <!-- ICON -->
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
-    />
-    <!-- BULMA -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
-    />
-    <!-- STYLESHEETS -->
+    <!-- CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
-
-    <!-- MOMENT.JS -->
-    <script src="./assets/lib/moment/moment-with-locales.js"></script>
-
-    <title>National Parks Information</title>
+    <title>NPS SEARCH</title>
   </head>
   <body>
-    <main>
-      <header>
-        <img
-          src="assets/Images/National-Park-Logo.png"
-          alt="NPS Logo"
-          class="Logo"
+    <section class="landingPageAll">
+      <img
+        src="./assets/Images/National-Park-Logo.png"
+        alt=""
+        class="logoLandingPage"
+      />
+      <div class="landingSearchBar">
+        <input
+          type="text"
+          name=""
+          id="landingPageSearch"
+          class="query"
+          value=""
+          placeholder="Search a National Park"
         />
-        <nav class="navBar">
-          <!--Modals for these items-->
-          <a href="https://www.nps.gov/index.htm" target="_blank">home</a>
-          <a
-            href="https://www.nps.gov/romo/learn/fire-information-and-regulations.htm"
-            target="_blank"
-            >closures</a
-          >
-          <a href="https://www.nps.gov/getinvolved/index.htm">partner</a>
-        </nav>
-        <form class="searchForm">
-          <input
-            type="text"
-            class="searchBar"
-            placeholder="search a national park"
-          />
-          <button class="searchBtn fa fa-search"></button>
-        </form>
-        <!-- Recent search dropdown menu -->
-        
-        <select class="recent-searches" placeholder="recent searches">
-          <button class="searchBtn fa fa-search"></button>
-          <option>Recent Searches</option>
-        </select>
-      
-      </header>
-
-      <section>
-        <div class="parkBio hide">
-          <div class="parkClassified">
-            <div class="nameGrouped">
-              <p class="namePark"></p>
-              <p class="parkDesignation"></p>
-            </div>
-            <p class="parkState"></p>
-            <div class="locationClassified">
-              <!-- <span class="material-symbols-outlined">map</span> -->
-              <p class="lat"></p>
-              <p class="lon"></p>
-            </div>
-            <p class="parkDesc"></p>
-          </div>
-          <img class="park-images" src="" alt="" />
-        </div>
-
-        <section class="pricesContainer">
-          <p class="entranceFeesTitle">Entrance Fees</p>
-          <div class="parkPrices"></div>
-          <button class="button mt-5" id="signup">Learn More</button>
-        </section>
-
-        <div class="park5DayWeather"></div>
-      </section>
-
-      <!-- MODAL CARD -->
-      <div class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content has-background-white py-5 px-5">
-          <h3 class="title mb-6">
-            Provide your information below to learn more!
-          </h3>
-          <form>
-            <div class="field">
-              <label class="label">Name</label>
-              <div class="control">
-                <input type="text" class="input" placeholder="Name" />
-              </div>
-            </div>
-            <div class="field">
-              <label class="label">Email</label>
-              <div class="control">
-                <input type="text" class="input" placeholder="Email" />
-              </div>
-            </div>
-            <div class="field">
-              <div class="control">
-                <label class="checkbox">
-                  <input type="checkbox" />
-                  I agree to the <a href="">terms & conditions</a>
-                </label>
-              </div>
-            </div>
-            <div class="mt-6 has-text-centered">
-              <button class="button">Sign Up</button>
-            </div>
-          </form>
-        </div>
+        <button class="searchBtn" id="landingPageBtn">search</button>
       </div>
+    </section>
 
-      <footer class="footer-text">
-        <p>powered by nps.gov/api</p>
-      </footer>
-
-      <script src="./assets/js/app.js"></script>
-    </main>
-    <span id="signup"></span>
+    <!-- SCRIPT -->
+    <script src="./assets/js/app.js"></script>
   </body>
 </html>
-
-<style>
-  .material-symbols-outlined {
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
-  }
-</style>

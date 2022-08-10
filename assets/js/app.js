@@ -108,7 +108,7 @@ let query = document.querySelector("#landingPageSearch");
 
 // FUNCTION FOR LANDING PAGE
 searchBtnEl.addEventListener("click", function () {
-  let url = "index.html?q=" + query.value;
+  let url = "main.html?q=" + query.value;
   window.open(url);
 });
 

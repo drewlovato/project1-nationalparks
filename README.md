@@ -1,13 +1,27 @@
-Bootcamp Project 1: National Parks Database
+ # 🏞 National Parks Search App
 
-[Deployment link](https://drewlovato.github.io/project1-nationalparks/)  
+### [Deployment link](https://drewlovato.github.io/project1-nationalparks/) 
 
-USER STORY:
+## Overview
+```md
+The code contained in this repository is for a National Park search app that allows users to find information about all National Parks in the USA.  Information includes entrance fees and weather forecasts via the OpenWeather 3rd Party API.
+```
+
+## Table of Contents
+- [User Story](#user-story)
+- [Acceptance Criteria](#acceptance-criteria)
+- [Technologies Used](#technologies-used)
+- [Static Screenshots](#statci-screenshots)
+- [Collaborators](#collaborators)
+
+
+### USER STORY
 
 AS A summer traveler
 I WANT to see the weather outlook, entrance fees, description, photos, and special highlights of all of the national parks in the United State SO THAT I can plan a trip accordingly
 
-ACCEPTANCE CRITERIA
+### ACCEPTANCE CRITERIA
+```
 GIVEN a national park search form WHEN I search for a national park, THEN I am presented witn an autocomplete menu of all parks that start with that letter for easy searching, and THEN I am presented with the park name, the date, an icon representation of weather conditions, the temperature, the humidity, and windspeed. THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity.
 
 WHEN I search for a national park, THEN I am presented with photos of the park, a brief description of that particular park, entrance fees for the park, and the the latitude and longitude of the particular park.
@@ -19,16 +33,19 @@ WHEN I click on the "home" links in the navBAr THEN I am brought to the homepage
 GIVEN a link in the navBAr for closure information, and partnership, THEN I am presented with information about park closures and NPS involvement activities from the NPS home page.
 
 WHEN I click on the "Learn More" button near the bottom of the page, I am presented with a modal for a sign-up sheet to receive additional National Park information.
+```
 
 
-FRAMEWORKS, LANGUAGES and APIs used in deployed application:
-
+### Technologies Used
 1. HTML / CSS / JavaScript
 2. BULMA for additional styling and functionality
-3. NPS developer API: https://developer.nps.gov/api/v1/
-4. Open Weather API 2.5 version: https://api.openweathermap.org/data/2.5/onecall
 
-MOCK UP TOUR OF APP:
+### 3rd Party APIs used in deployed application:
+
+1. NPS developer API: https://developer.nps.gov/api/v1/
+2. Open Weather API 2.5 version: https://api.openweathermap.org/data/2.5/onecall
+
+### Static Screenshots:
 
 Landing page: 
 
@@ -54,7 +71,8 @@ Recent Searches Dropdown:
 
 <img width="1188" alt="Screen Shot 2022-08-09 at 9 45 31 AM" src="https://user-images.githubusercontent.com/106923428/183698749-76e84d6f-9660-48c1-b4df-21dcf54b988c.png">
 
-COLLABORATORS:
-1. Andrew Lovato
-2. Brendon Curry-Hobbs
-3. Rod Bennett
+### COLLABORATORS
+1. [Andrew Lovato](https://github.com/drewlovato)
+2. [Brendon Curry-Hobbs](https://github.com/brendonc-h)
+3. [Rod Bennett](https://github.com/RodBennett)
+

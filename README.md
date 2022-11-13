@@ -1,5 +1,7 @@
  # 🏞 National Parks Search App
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ### [Deployment link](https://drewlovato.github.io/project1-nationalparks/) 
 
 ## Overview

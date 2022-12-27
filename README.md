@@ -1,8 +1,10 @@
  # 🏞 National Parks Search App
 
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ### [Deployment link](https://drewlovato.github.io/project1-nationalparks/) 
+
 
 ## Overview
 ```md
@@ -77,3 +79,5 @@ Recent Searches Dropdown:
 1. [Andrew Lovato](https://github.com/drewlovato)
 2. [Brendon Curry-Hobbs](https://github.com/brendonc-h)
 3. [Rod Bennett](https://github.com/RodBennett)
+
+

@@ -468,6 +468,21 @@ input::placeholder {
 
 /* START OF MEDIA QUERY */
 
+/* landing page media queries */
+
+@media (min-width: 320px) and (max-width: 480px) {
+   .landingSearchBar {
+      width: 70%;
+      margin: auto;
+      
+   }
+
+   #landingPageBtn {
+      width: 40%;
+      margin-left: 5px;
+   }
+}
+
 /* modile screen widths */
 @media (min-width: 320px) and (max-width: 480px){
 header{
